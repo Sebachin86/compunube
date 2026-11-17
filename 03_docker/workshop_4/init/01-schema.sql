@@ -1,0 +1,3 @@
+CREATE TABLE teachers(id SERIAL PRIMARY KEY,name VARCHAR(100) NOT NULL,email VARCHAR(150) UNIQUE NOT NULL);
+CREATE TABLE courses(id SERIAL PRIMARY KEY,title VARCHAR(150) NOT NULL,teacher_id INT REFERENCES teachers(id));
+CREATE TABLE enrollments(id SERIAL PRIMARY KEY,student_name VARCHAR(100) NOT NULL,course_id INT REFERENCES courses(id),enrolled_at TIMESTAMPTZ DEFAULT NOW(),UNIQUE(student_name,course_id));

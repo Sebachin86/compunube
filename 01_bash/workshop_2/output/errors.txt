@@ -1,0 +1,2 @@
+2026-11-01 ERROR api usuario=luis ip=10.0.0.8 timeout
+2026-11-02 ERROR db usuario=sofia ip=10.0.0.9 connection

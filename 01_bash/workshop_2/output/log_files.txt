@@ -1,0 +1,1 @@
+/mnt/data/computacion-en-la-nube/01_bash/workshop_2/data/server.log

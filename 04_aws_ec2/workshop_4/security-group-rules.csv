@@ -1,0 +1,6 @@
+type,protocol,port,source,reason
+SSH,TCP,22,203.0.113.10/32,Reemplazar por IP administrativa real
+HTTP,TCP,80,0.0.0.0/0,Web pública si se necesita
+HTTPS,TCP,443,0.0.0.0/0,Web cifrada
+Flask,TCP,5000,Security Group de Nginx,Tráfico interno
+PostgreSQL,TCP,5432,Security Group de la API,Base privada

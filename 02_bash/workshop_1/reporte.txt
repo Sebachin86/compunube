@@ -1,0 +1,6 @@
+Archivo: access.log
+Líneas: 8
+Palabras: 48
+Caracteres: 260
+ERROR: 4
+WARN: 1

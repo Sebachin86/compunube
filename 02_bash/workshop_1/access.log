@@ -1,0 +1,8 @@
+10.0.0.1 ana GET / 200 INFO
+10.0.0.2 luis POST /login 500 ERROR
+10.0.0.1 ana GET /rooms 200 INFO
+10.0.0.3 sofia GET /api 503 WARN
+10.0.0.2 luis GET /api 500 ERROR
+10.0.0.4 ana POST /reserve 500 ERROR
+10.0.0.3 sofia GET / 200 INFO
+10.0.0.2 luis GET / 500 ERROR

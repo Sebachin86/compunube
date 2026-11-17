@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS products(id SERIAL PRIMARY KEY,name VARCHAR(120) NOT NULL,price NUMERIC(12,2) NOT NULL CHECK(price>=0));
+INSERT INTO products(name,price) VALUES ('Laptop',2500000),('Mouse',45000);

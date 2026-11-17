@@ -1,0 +1,11 @@
+.env
+.env.*
+!.env.example
+*.pem
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+postgres_data/
+mongo_data/
+.DS_Store

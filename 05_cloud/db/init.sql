@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS employees(id SERIAL PRIMARY KEY,name VARCHAR(100) NOT NULL,email VARCHAR(150) UNIQUE NOT NULL,department VARCHAR(100));
+CREATE TABLE IF NOT EXISTS equipment(id SERIAL PRIMARY KEY,internal_code VARCHAR(50) UNIQUE NOT NULL,type VARCHAR(50) NOT NULL,brand VARCHAR(80),model VARCHAR(80),serial_number VARCHAR(100) UNIQUE,status VARCHAR(30) NOT NULL DEFAULT 'DISPONIBLE',acquisition_date DATE,employee_id INT REFERENCES employees(id));
+CREATE TABLE IF NOT EXISTS maintenance(id SERIAL PRIMARY KEY,equipment_id INT NOT NULL REFERENCES equipment(id),maintenance_date TIMESTAMPTZ DEFAULT NOW(),type VARCHAR(50) NOT NULL,description TEXT NOT NULL,cost NUMERIC(12,2) NOT NULL DEFAULT 0 CHECK(cost>=0));
+CREATE TABLE IF NOT EXISTS documents(id SERIAL PRIMARY KEY,equipment_id INT NOT NULL REFERENCES equipment(id),file_name VARCHAR(255) NOT NULL,s3_key VARCHAR(500) NOT NULL,created_at TIMESTAMPTZ DEFAULT NOW());
+CREATE TABLE IF NOT EXISTS equipment_events(id SERIAL PRIMARY KEY,equipment_id INT NOT NULL REFERENCES equipment(id),event_type VARCHAR(40) NOT NULL,details TEXT NOT NULL,created_at TIMESTAMPTZ DEFAULT NOW());
+INSERT INTO employees(name,email,department) VALUES('Ana Torres','ana@example.com','Tecnología'),('Luis Pérez','luis@example.com','Operaciones') ON CONFLICT(email) DO NOTHING;
+INSERT INTO equipment(internal_code,type,brand,model,serial_number) VALUES('LAP-0010','Laptop','Lenovo','ThinkPad E14','SN-LAP-0010'),('MON-0020','Monitor','Dell','P2422H','SN-MON-0020') ON CONFLICT(internal_code) DO NOTHING;

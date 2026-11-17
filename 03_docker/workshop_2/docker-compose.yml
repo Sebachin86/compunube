@@ -1,0 +1,8 @@
+services:
+ users: {build: ./users}
+ products: {build: ./products}
+ nginx:
+  image: nginx:1.27-alpine
+  ports: ["8081:80"]
+  volumes: ["./nginx.conf:/etc/nginx/nginx.conf:ro"]
+  depends_on: [users,products]
